@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
-import { TrendingUp, Users, DollarSign, Calendar } from "lucide-react";
+import { TrendingUp, Users, DollarSign, Calendar, UserCog } from "lucide-react";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -59,16 +59,32 @@ const Index = () => {
           </Card>
         </div>
 
-        <div className="space-y-4">
-          <Button 
-            onClick={() => navigate('/dashboard')} 
-            size="lg"
-            className="text-lg px-8 py-6"
-          >
-            Access Your Dashboard
-          </Button>
+        <div className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+            <Button 
+              onClick={() => navigate('/dashboard')} 
+              size="lg"
+              className="text-lg px-8 py-6 h-auto flex flex-col gap-2"
+            >
+              <Users className="h-6 w-6" />
+              Client Dashboard
+              <span className="text-sm opacity-90">View your insights</span>
+            </Button>
+            
+            <Button 
+              onClick={() => navigate('/account-manager')} 
+              size="lg"
+              variant="outline"
+              className="text-lg px-8 py-6 h-auto flex flex-col gap-2"
+            >
+              <UserCog className="h-6 w-6" />
+              Account Manager
+              <span className="text-sm opacity-90">Generate client insights</span>
+            </Button>
+          </div>
+          
           <p className="text-sm text-muted-foreground">
-            Secure login with your client credentials
+            Secure access with role-based authentication
           </p>
         </div>
       </div>
