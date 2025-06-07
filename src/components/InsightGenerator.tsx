@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { FileDown, Mail, Copy, BarChart3, Loader2 } from "lucide-react";
+import { FileText, Mail, Copy, BarChart3, Loader2, Paperclip } from "lucide-react";
 
 interface InsightGeneratorProps {
   isGenerating: boolean;
@@ -20,7 +20,7 @@ export const InsightGenerator = ({ isGenerating, insight }: InsightGeneratorProp
             <div>
               <h3 className="font-semibold">Generating Insights...</h3>
               <p className="text-sm text-muted-foreground">
-                Analyzing call transcripts and performance data
+                Analyzing call transcripts, email communications, attachments, and performance data
               </p>
             </div>
           </div>
@@ -38,7 +38,7 @@ export const InsightGenerator = ({ isGenerating, insight }: InsightGeneratorProp
             <div>
               <h3 className="font-semibold">Ready to Generate Insights</h3>
               <p className="text-sm text-muted-foreground">
-                Select a client and topic to get started
+                Select a client and topic to analyze communications and data
               </p>
             </div>
           </div>
@@ -54,7 +54,7 @@ export const InsightGenerator = ({ isGenerating, insight }: InsightGeneratorProp
           <div>
             <CardTitle>{insight.title}</CardTitle>
             <CardDescription className="mt-2">
-              Generated from call transcripts and system metrics
+              Generated from call transcripts, email communications, document attachments, and system metrics
             </CardDescription>
           </div>
           <div className="flex gap-2">
@@ -67,13 +67,38 @@ export const InsightGenerator = ({ isGenerating, insight }: InsightGeneratorProp
               Email
             </Button>
             <Button variant="outline" size="sm">
-              <FileDown className="h-4 w-4 mr-2" />
+              <FileText className="h-4 w-4 mr-2" />
               Export
             </Button>
           </div>
         </div>
       </CardHeader>
       <CardContent className="space-y-6">
+        {/* Data Sources Used */}
+        <div>
+          <h4 className="font-semibold mb-2">Data Sources Analyzed</h4>
+          <div className="flex gap-2 flex-wrap">
+            <Badge variant="outline" className="flex items-center gap-1">
+              <FileText className="h-3 w-3" />
+              Call Transcripts
+            </Badge>
+            <Badge variant="outline" className="flex items-center gap-1">
+              <Mail className="h-3 w-3" />
+              Email Communications
+            </Badge>
+            <Badge variant="outline" className="flex items-center gap-1">
+              <Paperclip className="h-3 w-3" />
+              Document Attachments
+            </Badge>
+            <Badge variant="outline" className="flex items-center gap-1">
+              <BarChart3 className="h-3 w-3" />
+              Performance Metrics
+            </Badge>
+          </div>
+        </div>
+
+        <Separator />
+
         {/* Summary */}
         <div>
           <h4 className="font-semibold mb-2">Executive Summary</h4>
@@ -117,10 +142,10 @@ export const InsightGenerator = ({ isGenerating, insight }: InsightGeneratorProp
         {/* Action Buttons */}
         <div className="flex gap-2 pt-4">
           <Button variant="outline">
-            View Supporting Transcripts
+            View Supporting Communications
           </Button>
           <Button variant="outline">
-            Compare with Similar Clients
+            Review Source Documents
           </Button>
           <Button>
             Schedule Client Meeting
