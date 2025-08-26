@@ -8,6 +8,8 @@ import { PerformanceMetrics } from '@/components/PerformanceMetrics';
 import { InsightsSummary } from '@/components/InsightsSummary';
 import { TrendChart } from '@/components/TrendChart';
 import { ActionItems } from '@/components/ActionItems';
+import { ConversationalAI } from '@/components/ConversationalAI';
+import { ScenarioModeling } from '@/components/ScenarioModeling';
 import { Calendar, TrendingUp, Users, DollarSign } from 'lucide-react';
 
 const ClientDashboard = () => {
@@ -99,6 +101,8 @@ const ClientDashboard = () => {
             <TabsTrigger value="performance">Performance Metrics</TabsTrigger>
             <TabsTrigger value="trends">Trends & Analytics</TabsTrigger>
             <TabsTrigger value="actions">Action Items</TabsTrigger>
+            <TabsTrigger value="ai-assistant">AI Assistant</TabsTrigger>
+            <TabsTrigger value="scenario-modeling">Scenario Modeling</TabsTrigger>
           </TabsList>
 
           <TabsContent value="insights" className="space-y-4">
@@ -115,6 +119,14 @@ const ClientDashboard = () => {
 
           <TabsContent value="actions" className="space-y-4">
             <ActionItems />
+          </TabsContent>
+
+          <TabsContent value="ai-assistant" className="space-y-4">
+            <ConversationalAI />
+          </TabsContent>
+
+          <TabsContent value="scenario-modeling" className="space-y-4">
+            <ScenarioModeling />
           </TabsContent>
         </Tabs>
       </div>
